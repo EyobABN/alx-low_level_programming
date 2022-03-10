@@ -6,6 +6,7 @@
 
 /**
  * main - print a string using the puts function
+ * Return: return 0
  */
 int main(void)
 {
