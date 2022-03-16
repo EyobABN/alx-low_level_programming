@@ -7,9 +7,9 @@
 void fibonacci(void)
 {
 	int i;
-	double a = 1;
-	double b = 2;
-	double c;
+	unsigned long int a = 1;
+	unsigned long int b = 2;
+	unsigned long int c;
 	int first = 1;
 
 	for (i = 0; i < 98; i++)
@@ -22,7 +22,7 @@ void fibonacci(void)
 		{
 			printf(", ");
 		}
-		printf("%.0f", a);
+		printf("%lu", a);
 		c = a + b;
 		a = b;
 		b = c;
