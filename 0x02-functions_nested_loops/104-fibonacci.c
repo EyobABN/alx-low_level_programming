@@ -22,7 +22,7 @@ void fibonacci(void)
 		{
 			printf(", ");
 		}
-		printf("%f", a);
+		printf("%.0f", a);
 		c = a + b;
 		a = b;
 		b = c;
