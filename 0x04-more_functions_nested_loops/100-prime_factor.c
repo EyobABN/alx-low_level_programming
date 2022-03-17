@@ -8,10 +8,11 @@
  *
  * Return: Always 0.
  */
-void factorize(long long n)
+void factorize(long n)
 {
 	int count = 0;
-	long long max = 0;
+	long max = 0;
+	long i;
 
 	while (!(n % 2))
 	{
@@ -23,7 +24,6 @@ void factorize(long long n)
 /*		printf("2 %d\n", count); */
 		max = 2;
 /*		printf("Largest prime factor: %lld\n", max); */
-	long long i;
 
 	for (i = 3; i <= sqrt(n); i += 2)
 	{
@@ -41,7 +41,7 @@ void factorize(long long n)
 
 	if (n > 2)
 /*		printf("%lld 1\n", n); */
-	printf("%lld\n", n);
+	printf("%ld\n", n);
 }
 
 
@@ -52,7 +52,7 @@ void factorize(long long n)
  */
 int main(void)
 {
-	long long n = 1231952;
+	long n = 152488797;
 
 	factorize(n);
 	return (0);
