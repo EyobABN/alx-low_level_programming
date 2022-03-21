@@ -28,9 +28,10 @@ void rev_string(char *s)
 {
 	int count;
 	int cnt;
-	char r[10];
+	char r[100];
 
 	count = _strlen(s);
+
 	cnt = 0;
 	while (count > 0)
 	{
