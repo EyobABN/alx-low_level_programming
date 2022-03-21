@@ -28,7 +28,7 @@ void rev_string(char *s)
 {
 	int count;
 	int cnt;
-	char r[100];
+	char r[1000];
 
 	count = _strlen(s);
 
