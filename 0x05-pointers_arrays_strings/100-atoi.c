@@ -44,7 +44,7 @@ int _atoi(char *s)
 	p = 1;
 	for (i = (j + digit - 1); i >= j; i--)
 	{
-		if ((*(s + i) - 48) > (INT_MAX - sum) / p)
+		if ((*(s + i) - 48) > 1 && (sum >= 147483647))
 		{
 			if (sign == 1)
 				return (INT_MAX);
