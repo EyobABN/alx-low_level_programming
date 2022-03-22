@@ -44,15 +44,15 @@ int _atoi(char *s)
 	p = 1;
 	for (i = (j + digit - 1); i >= j; i--)
 	{
-		sum += p * (*(s + i) - 48);
-		p = p * 10;
-		if (sum > INT_MAX / 10 || (sum == INT_MAX / 10 && *(s + i) - '0' > 7))
+		if ((*(s + i) - 48) > (INT_MAX - sum) / p)
 		{
 			if (sign == 1)
 				return (INT_MAX);
 			else
 				return (INT_MIN);
 		}
+		sum += p * (*(s + i) - 48);
+		p = p * 10;
 	}
 	return (sign * sum);
 }
