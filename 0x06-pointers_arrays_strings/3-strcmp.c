@@ -16,8 +16,10 @@ int _strcmp(char *s1, char *s2)
 
 	while (*(s2 + s2n))
 		s2n++;
+	s2n++;
 	while (*(s1 + s1n))
 		s1n++;
+	s1n++;
 	if (s1n < s2n)
 		res = -15;
 	else if (s1n == s2n)
