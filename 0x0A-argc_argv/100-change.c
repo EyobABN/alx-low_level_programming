@@ -54,52 +54,43 @@ int main(int argc, char *argv[])
 
 	while (cents)
 	{
-		if (cents % 100)
+		if (cents % 25)
 		{
-			if (cents % 25)
+			if (cents % 10)
 			{
-				if (cents % 10)
+				if (cents % 5)
 				{
-					if (cents % 5)
+					if (cents % 2)
 					{
-						if (cents % 2)
-						{
-							coins += 1;
-							cents -= 1;
-							continue;
-						}
-						else
-						{
-							coins += 1;
-							cents -= 2;
-							continue;
-						}
+						coins += 1;
+						cents -= 1;
+						continue;
 					}
 					else
 					{
 						coins += 1;
-						cents -= 5;
+						cents -= 2;
 						continue;
 					}
 				}
 				else
 				{
 					coins += 1;
-					cents -= 10;
+					cents -= 5;
 					continue;
 				}
 			}
 			else
 			{
 				coins += 1;
-				cents -= 25;
+				cents -= 10;
 				continue;
 			}
 		}
 		else
 		{
-			coins += 4;
-			cents -= 100;
+			coins += 1;
+			cents -= 25;
 			continue;
 		}
 	}
