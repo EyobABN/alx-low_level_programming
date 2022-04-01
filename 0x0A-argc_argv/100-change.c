@@ -12,6 +12,10 @@ int isnumber(char *s)
 {
 	int i;
 
+	if (*s == '-')
+		s++;
+	if (*s == '\0')
+		return (0);
 	i = 0;
 	while (*(s + i))
 	{
@@ -33,7 +37,7 @@ int main(int argc, char *argv[])
 {
 	int __attribute__ ((unused)) i, cents, coins;
 
-	if (argc != 2)
+	if (argc != 2 || (argc == 2 && !(isnumber(argv[1]))))
 	{
 		printf("Error\n");
 		return (1);
@@ -42,11 +46,6 @@ int main(int argc, char *argv[])
 	{
 		printf("0\n");
 		return (0);
-	}
-	if (!(isnumber(argv[1])))
-	{
-		printf("Error\n");
-		return (1);
 	}
 
 	cents = atoi(argv[1]);
