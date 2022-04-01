@@ -66,35 +66,41 @@ int main(int argc, char *argv[])
 						{
 							coins += 1;
 							cents -= 1;
+							continue;
 						}
 						else
 						{
 							coins += 1;
 							cents -= 2;
+							continue;
 						}
 					}
 					else
 					{
 						coins += 1;
 						cents -= 5;
+						continue;
 					}
 				}
 				else
 				{
 					coins += 1;
 					cents -= 10;
+					continue;
 				}
 			}
 			else
 			{
 				coins += 1;
 				cents -= 25;
+				continue;
 			}
 		}
 		else
 		{
 			coins += 4;
 			cents -= 100;
+			continue;
 		}
 	}
 	printf("%d\n", coins);
