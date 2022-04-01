@@ -27,6 +27,54 @@ int isnumber(char *s)
 }
 
 /**
+ * change - converts cents to change
+ * @cents: cents to be converted to change
+ * @coins: number of coins in change
+ *
+ * Return: void
+ */
+void change(int *cents, int *coins)
+{
+	while (*cents)
+	{
+		if (*cents < 25)
+		{
+			if (*cents < 10)
+			{
+				if (*cents < 5)
+				{
+					if (*cents < 2)
+					{
+						*coins += 1;
+						*cents -= 1;
+					}
+					else
+					{
+						*coins += 1;
+						*cents -= 2;
+					}
+				}
+				else
+				{
+					*coins += 1;
+					*cents -= 5;
+				}
+			}
+			else
+			{
+				*coins += 1;
+				*cents -= 10;
+			}
+		}
+		else
+		{
+			*coins += 1;
+			*cents -= 25;
+		}
+	}
+}
+
+/**
  * main - prints the number of arguments
  * @argc: number of command line arguments
  * @argv: array of argument strings
@@ -35,7 +83,7 @@ int isnumber(char *s)
  */
 int main(int argc, char *argv[])
 {
-	int __attribute__ ((unused)) i, cents, coins;
+	int cents, coins;
 
 	if (argc != 2 || (argc == 2 && !(isnumber(argv[1]))))
 	{
@@ -51,43 +99,8 @@ int main(int argc, char *argv[])
 	cents = atoi(argv[1]);
 	coins = 0;
 
-	while (cents)
-	{
-		if (cents < 25)
-		{
-			if (cents < 10)
-			{
-				if (cents < 5)
-				{
-					if (cents < 2)
-					{
-						coins += 1;
-						cents -= 1;
-					}
-					else
-					{
-						coins += 1;
-						cents -= 2;
-					}
-				}
-				else
-				{
-					coins += 1;
-					cents -= 5;
-				}
-			}
-			else
-			{
-				coins += 1;
-				cents -= 10;
-			}
-		}
-		else
-		{
-			coins += 1;
-			cents -= 25;
-		}
-	}
+	change(&cents, &coins);
+
 	printf("%d\n", coins);
 
 	return (0);
