@@ -16,13 +16,9 @@ char **strtow(char *str)
 	if (*str == '\0' || str == NULL)
 		return (NULL);
 	words = 0;
-	i = 0;
-	while (str[i])
-	{
+	for (i = 0; str[i] != '\0'; i++)
 		if ((i == 0 && str[i] != ' ') || (str[i - 1] == ' ' && str[i] != ' '))
 			words++;
-		i++;
-	}
 	if (words == 0)
 		return (NULL);
 	strlen = i;
