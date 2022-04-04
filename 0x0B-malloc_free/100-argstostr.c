@@ -33,7 +33,7 @@ char *str_concat(char *s1, char *s2)
 		i++;
 	}
 
-	arr = malloc(sizeof(char) * (size1 + size2 + 2));
+	arr = (char *)malloc(sizeof(char) * (size1 + size2 + 1));
 	if (arr == NULL)
 		return (NULL);
 
@@ -41,8 +41,7 @@ char *str_concat(char *s1, char *s2)
 		arr[i] = s1[i];
 	for (; i < size1 + size2; i++)
 		arr[i] = *s2++;
-	arr[i] = '\n';
-	arr[i + 1] = '\0';
+	arr[i] = '\0';
 	return (arr);
 }
 
@@ -65,6 +64,7 @@ char *argstostr(int ac, char **av)
 	for (i = 0; i < ac; i++)
 	{
 		str = str_concat(str, av[i]);
+		str = str_concat(str, "\n");
 	}
 	return (str);
 }
