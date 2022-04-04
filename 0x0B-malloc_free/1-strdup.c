@@ -21,6 +21,8 @@ char *_strdup(char *str)
 	{
 		size++;
 		i++;
+		if (str[i] == '\0')
+			size++;
 	}
 
 	arr = malloc(sizeof(char) * size);
