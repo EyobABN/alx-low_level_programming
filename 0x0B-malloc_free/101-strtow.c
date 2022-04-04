@@ -13,6 +13,8 @@ char **strtow(char *str)
 	int i, j, k, current_word, words, letter_count, strlen;
 	char **arr;
 
+	if (str == "" || str == NULL)
+		return (NULL);
 	words = 0;
 	i = 0;
 	while (str[i])
@@ -21,6 +23,8 @@ char **strtow(char *str)
 			words++;
 		i++;
 	}
+	if (words == 0)
+		return (NULL);
 	strlen = i;
 	arr = (char **)malloc(sizeof(char *) * (words + 1));
 	if (arr == NULL)
