@@ -13,7 +13,7 @@ char **strtow(char *str)
 	int i, j, k, current_word, words, letter_count, strlen;
 	char **arr;
 
-	if (str == "" || str == NULL)
+	if (*str == '\0' || str == NULL)
 		return (NULL);
 	words = 0;
 	i = 0;
