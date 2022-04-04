@@ -11,27 +11,23 @@
 char *str_concat(char *s1, char *s2)
 {
 	int i, size1, size2;
-	char *arr, *str1, *str2;
+	char *arr;
 
 	if (s1 == NULL)
-		str1 = "";
-	else
-		str1 = s1;
+		s1 = "";
 	if (s2 == NULL)
-		str2 = "";
-	else
-		str2 = s2;
+		s2 = "";
 
 	size1 = 0;
 	size2 = 0;
 	i = 0;
-	while (str1[i])
+	while (s1[i])
 	{
 		size1++;
 		i++;
 	}
 	i = 0;
-	while (str2[i])
+	while (s2[i])
 	{
 		size2++;
 		i++;
@@ -42,9 +38,9 @@ char *str_concat(char *s1, char *s2)
 		return (NULL);
 
 	for (i = 0; i < size1; i++)
-		arr[i] = str1[i];
+		arr[i] = s1[i];
 	for (; i < size1 + size2; i++)
-		arr[i] = *str2++;
+		arr[i] = *s2++;
 	arr[i] = '\0';
 	return (arr);
 }
