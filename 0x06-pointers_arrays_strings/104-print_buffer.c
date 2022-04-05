@@ -17,9 +17,7 @@ void print_buffer(char *b, int size)
 	while (i < size)
 	{
 		if (!(i % 10) && i)
-		{
 			printf("\n");
-		}
 		if (i % 10 == 0)
 		{
 			if (i < size)
@@ -37,10 +35,12 @@ void print_buffer(char *b, int size)
 				putchar('.');
 		}
 		else
+		{
 			if (isprint(*(b + i)))
 				putchar(*(b + i));
 			else
 				putchar('.');
+		}
 		i++;
 	}
 	printf("\n");
