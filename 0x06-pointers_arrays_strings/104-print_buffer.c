@@ -11,8 +11,21 @@
  */
 void print_buffer(char *b, int size)
 {
-	int i, j;
+	int i, j, true_size;
+	
+	i = 0;
+	true_size = 0;
+	while (b[i])
+	{
+		true_size++;
+		i++;
+	}
 
+	if (true_size <= 0)
+	{
+		printf("\n");
+		return;
+	}
 	i = 0;
 	while (i < size)
 	{
