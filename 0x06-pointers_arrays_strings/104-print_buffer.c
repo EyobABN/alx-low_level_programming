@@ -16,8 +16,11 @@ void print_buffer(char *b, int size)
 	i = 0;
 	while (i < size)
 	{
-		if (size <= 0)
+		if (size <= 1)
+		{
+			printf("\n");
 			return;
+		}
 		if (!(i % 10) && i)
 			printf("\n");
 		if (i % 10 == 0)
