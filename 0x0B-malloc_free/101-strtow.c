@@ -38,7 +38,7 @@ char **strtow(char *str)
 					break;
 				letter_count++;
 			}
-			arr[current_word] = (char *)malloc(sizeof(char) * letter_count);
+			arr[current_word] = (char *)malloc(sizeof(char) * (letter_count + 1));
 			if (arr[current_word] == NULL)
 				return (NULL);
 			for (k = i; k < i + letter_count; k++)
@@ -47,6 +47,5 @@ char **strtow(char *str)
 		}
 	}
 	arr[words] = NULL;
-
 	return (arr);
 }
