@@ -1,49 +1,6 @@
 #include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
-
-/**
- * str_concat - concats two strings
- * @s1: the first string
- * @s2: the second string
- *
- * Return: pointer to the new string
- */
-char *str_concat(char *s1, char *s2)
-{
-	int i, size1, size2;
-	char *arr;
-
-	if (s1 == NULL)
-		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
-
-	size1 = 0;
-	size2 = 0;
-	i = 0;
-	while (s1[i])
-	{
-		size1++;
-		i++;
-	}
-	i = 0;
-	while (s2[i])
-	{
-		size2++;
-		i++;
-	}
-
-	arr = (char *)malloc(sizeof(char) * (size1 + size2 + 1));
-	if (arr == NULL)
-		return (NULL);
-
-	for (i = 0; i < size1; i++)
-		arr[i] = s1[i];
-	for (; i < size1 + size2; i++)
-		arr[i] = *s2++;
-	arr[i] = '\0';
-	return (arr);
-}
 
 /**
  * argstostr - concatenates arguments
@@ -54,17 +11,34 @@ char *str_concat(char *s1, char *s2)
  */
 char *argstostr(int ac, char **av)
 {
-	int i;
+	int i, j, k, letter_count;
 	char *str;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
-	str = "";
+	letter_count = 0;
 	for (i = 0; i < ac; i++)
 	{
-		str = str_concat(str, av[i]);
-		str = str_concat(str, "\n");
+		for (j = 0; av[i][j] != '\0'; j++)
+			letter_count++;
+		letter_count++;
 	}
+
+	str = malloc(sizeof(char) * letter_count);
+	if (str == NULL)
+		return (NULL);
+	k = 0;
+	for (i = 0; i < ac; i++)
+	{
+		for (j = 0; av[i][j] != '\0'; j++)
+		{
+			str[k] = av[i][j];
+			k++;
+		}
+		str[k] = '\n';
+		k++;
+	}
+	str[k + 1] = '\0';
 	return (str);
 }
