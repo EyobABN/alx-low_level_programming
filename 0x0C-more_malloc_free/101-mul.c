@@ -200,9 +200,6 @@ char *mul(char *num1, char *num2)
 	product = "";
 	for (i = 0; i < size2; i++)
 		product = infinite_add(product, acc[i]);
-	for (i = 0; i < size2; i++)
-		free(acc[i]);
-	free(acc);
 	return (product);
 }
 
