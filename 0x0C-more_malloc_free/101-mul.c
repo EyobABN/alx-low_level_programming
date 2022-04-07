@@ -94,7 +94,7 @@ char *add(char *sum, char *n1, char *n2, int i, int j, int k, int size_r)
 	while (i >= -1 || j >= -1)
 	{
 		if (k < 0)
-			return (0);
+			return (NULL);
 		if (i < 0)
 			a = 0;
 		else
