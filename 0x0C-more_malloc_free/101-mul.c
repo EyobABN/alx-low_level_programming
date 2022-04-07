@@ -120,7 +120,7 @@ char *add(char *sum, char *n1, char *n2, int i, int j, int k, int size_r)
 		k--;
 	}
 	sum[size_r] = '\0';
-	while (*sum - '0' == 0)
+	while (*sum - '0' == 0 && *(sum + 1) != '\0')
 		sum++;
 	return (sum);
 }
