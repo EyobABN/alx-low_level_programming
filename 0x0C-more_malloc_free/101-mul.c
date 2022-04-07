@@ -183,6 +183,7 @@ char *mul(char *num1, char *num2)
 		{
 			for (j = 0; j < i; j++)
 				free(acc[j]);
+			free(acc);
 			return (NULL);
 		}
 	}
