@@ -14,8 +14,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 	int i, name_size, owner_size;
 	dog_t *n_dog;
 
-	n_dog = (dog_t *)malloc(sizeof *n_dog);
-	if(n_dog == NULL)
+	n_dog = (dog_t *)malloc(sizeof(*n_dog));
+	if (n_dog == NULL)
 		return (NULL);
 	name_size = 0;
 	for (i = 0; name[i] != '\0'; i++)
@@ -28,7 +28,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	n_dog->name = calloc(name_size + 1, sizeof(char));
 	if (n_dog->name == NULL)
 		return (NULL);
-	
+
 	n_dog->age = age;
 
 	n_dog->owner = calloc(owner_size + 1, sizeof(char));
