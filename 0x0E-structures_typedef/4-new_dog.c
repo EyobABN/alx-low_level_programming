@@ -25,7 +25,11 @@ dog_t *new_dog(char *name, float age, char *owner)
 	for (i = 0; owner[i] != '\0'; i++)
 		owner_size++;
 	name_cpy = calloc(name_size + 1, sizeof(char));
+	if (name_cpy == NULL)
+		return (NULL);
 	owner_cpy = calloc(owner_size + 1, sizeof(char));
+	if (owner_cpy == NULL)
+		return (NULL);
 	for (i = 0; name[i] != '\0'; i++)
 		name_cpy[i] = name[i];
 	name_cpy[i] = name[i];
