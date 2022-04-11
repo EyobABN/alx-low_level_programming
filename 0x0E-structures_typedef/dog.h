@@ -1,6 +1,7 @@
 #ifndef DOG_H
 #define DOG_H
 
+typedef struct dog dog_t;
 #include <stdio.h>
 /**
  * struct dog - dog struct
