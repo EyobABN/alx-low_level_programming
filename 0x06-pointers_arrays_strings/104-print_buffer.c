@@ -32,7 +32,7 @@ void print_buffer(char *b, int size)
 					printf("%02x ", b[i + j + 1]);
 				else
 					printf("  ");
-				printf("  ");
+				printf(" ");
 			}
 			if (isprint(*(b + i)))
 				putchar(*(b + i));
