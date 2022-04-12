@@ -24,14 +24,15 @@ void print_buffer(char *b, int size)
 				printf("%08x: ", i);
 			for (j = 0; j < 10; j += 2)
 			{
-				if (i + j < size - 1)
-				{
+				if (i + j < size)
 					printf("%02x", b[i + j]);
-					if (i + j + 1 <= size - 1)
-						printf("%02x ", b[i + j + 1]);
-				}
 				else
-					printf("     ");
+					printf("  ");
+				if (i + j + 1 < size)
+					printf("%02x ", b[i + j + 1]);
+				else
+					printf("  ");
+				printf("  ");
 			}
 			if (isprint(*(b + i)))
 				putchar(*(b + i));
