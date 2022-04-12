@@ -29,7 +29,7 @@ void print_buffer(char *b, int size)
 				else
 					printf("  ");
 				if (i + j + 1 < size)
-					printf("%02x ", b[i + j + 1]);
+					printf("%02x", b[i + j + 1]);
 				else
 					printf("  ");
 				printf(" ");
