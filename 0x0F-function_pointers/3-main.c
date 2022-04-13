@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 	opr = *argv[2];
-	if (!(opr != '+' || opr != '-' || opr != '*' || opr != '/' || opr != '%') ||
+	if (!(opr == '+' || opr == '-' || opr == '*' || opr == '/' || opr == '%') ||
 			argv[2][1] != '\0')
 	{
 		printf("Error\n");
