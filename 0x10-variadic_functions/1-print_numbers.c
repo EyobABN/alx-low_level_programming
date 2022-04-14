@@ -1,26 +1,6 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
-#include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
 
-/**
- * isNumber - checks if a string is a number
- * @s: the string
- *
- * Return: 1 if string, 0 if not
- */
-int __attribute__ ((unused)) isNumber(char *s)
-{
-	int i;
-
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		if (isdigit(s[i]) == 0)
-			return (0);
-	}
-	return (1);
-}
 /**
  * print_numbers - prints numbers with the separator
  * @separator: the separator
