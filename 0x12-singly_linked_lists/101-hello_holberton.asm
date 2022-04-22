@@ -7,13 +7,12 @@ fmt:    db "%s", 10, 0
 	SECTION .text
 	global main
 main:
-	push rbp	; set up stack frame
+	push rbp
 
-	mov rdi, fmt    ; 64-bit ABI passing order starts w/ edi, esi, ...
-	mov rsi, msg    ;
+	mov rdi, fmt
+	mov rsi, msg
 	call printf
 
-	pop rbp		; restore stack
+	pop rbp
 
 	ret
-;----------------------------------------------------------------------------
