@@ -22,11 +22,15 @@ list_t *add_node_end(list_t **head, const char *str)
 	if (str == NULL)
 	{
 		new->str = strdup("(nil)");
+		if (new->str == NULL)
+			return (NULL);
 		new->len = 0;
 	}
 	else
 	{
 		new->str = strdup(str);
+		if (new->str == NULL)
+			return (NULL);
 		new->len = strlen(new->str);
 	}
 	new->next = NULL;
