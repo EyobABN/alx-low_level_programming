@@ -20,7 +20,7 @@ size_t print_listint_safe(const listint_t *head)
 		arr[i++] = p;
 		for (j = 0; j < i; j++)
 		{
-			if (arr[j] != NULL && arr[j] == p->next)
+			if (arr[j] == p->next)
 			{
 				loop = 1;
 				conv = p->next;
