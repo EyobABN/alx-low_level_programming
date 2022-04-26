@@ -15,8 +15,6 @@ size_t print_listint_safe(const listint_t *head)
 	size_t count = 0;
 	int j, i = 0, loop = 0;
 
-	if (head == NULL)
-		exit(98);
 	for (; p != NULL; p = p->next)
 	{
 		arr[i++] = p;
