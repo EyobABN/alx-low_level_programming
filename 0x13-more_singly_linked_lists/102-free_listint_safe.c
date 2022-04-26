@@ -14,8 +14,6 @@
 void free_listint_safe_helper(listint_t *p, listint_t *conv,
 		size_t *count, int *re)
 {
-	if (p == NULL)
-		return;
 	if (p->next == conv)
 		*re += 1;
 	if (p->next == NULL || (p->next == conv && *re > 1))
@@ -43,6 +41,8 @@ size_t free_listint_safe(listint_t **h)
 	size_t count = 0;
 	int j, i = 0, loop = 0, re = 0;
 
+	if (h == NULL || *h == NULL)
+		return (0);
 	for (; p != NULL; p = p->next)
 	{
 		arr[i++] = p;
