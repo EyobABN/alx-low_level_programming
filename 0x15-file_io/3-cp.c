@@ -36,12 +36,12 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 		exit(99);
 	}
-	read_size1 = read(fd[0], buf, sizeof(buf));
-	write_size2 = write(fd[1], buf, read_size1);
-	if (fd[1] == -1 || write_size2 == -1)
+	while (1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
-		exit(99);
+		read_size1 = read(fd[0], buf, sizeof(buf));
+		write_size2 = write(fd[1], buf, read_size1);
+		if (write_size2 != read_size1)
+			break;
 	}
 	close_fd[0] = close(fd[0]);
 	close_fd[1] = close(fd[1]);
