@@ -25,11 +25,16 @@ int main(int ac, char **av)
 		exit(97);
 	}
 	fd[0] = open(av[1], O_RDONLY);
-	fd[1] = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd[0] == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
+	}
+	fd[1] = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	if (fd[1] == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
+		exit(99);
 	}
 	read_size1 = read(fd[0], buf, sizeof(buf));
 	write_size2 = write(fd[1], buf, read_size1);
