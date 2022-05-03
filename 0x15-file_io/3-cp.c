@@ -58,28 +58,30 @@ void error100(int fd)
  */
 int main(int ac, char **av)
 {
-	int read_size1, write_size2;
+	int read_size1, write_size2, fd1, fd2, exists = 0;
 	char buf[1024];
-	int fd[2], close_fd[2], i;
 
 	if (ac != 3)
 		error97();
-	fd[0] = open(av[1], O_RDONLY);
-	if (fd[0] == -1)
+	fd1 = open(av[1], O_RDONLY);
+	if (fd1 == -1)
 		error98(av[1]);
-	fd[1] = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 00664);
-	if (fd[1] == -1)
+	if (access(av[2], F_OK) == 0)
+		exists = 1;
+	fd2 = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	if (fd2 == -1)
 		error99(av[2]);
-	read_size1 = read(fd[0], buf, sizeof(buf));
+	if (!exists)
+		fchmod(fd2, 0664);
+	read_size1 = read(fd1, buf, sizeof(buf));
 	if (read_size1 == -1)
 		error98(av[1]);
-	write_size2 = write(fd[1], buf, read_size1);
+	write_size2 = write(fd2, buf, read_size1);
 	if (write_size2 == -1)
 		error99(av[2]);
-	close_fd[0] = close(fd[0]);
-	close_fd[1] = close(fd[1]);
-	for (i = 0; i < 2; i++)
-		if (close_fd[i] == -1)
-			error100(fd[i]);
+	if (close(fd1) == -1)
+		error100(fd1);
+	if (close(fd2) == -1)
+		error100(fd2);
 	return (0);
 }
