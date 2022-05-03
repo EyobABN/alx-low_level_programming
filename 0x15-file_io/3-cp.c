@@ -73,12 +73,17 @@ int main(int ac, char **av)
 		error99(av[2]);
 	if (!exists)
 		fchmod(fd2, 0664);
-	read_size1 = read(fd1, buf, sizeof(buf));
-	if (read_size1 == -1)
-		error98(av[1]);
-	write_size2 = write(fd2, buf, read_size1);
-	if (write_size2 == -1)
-		error99(av[2]);
+	while (1)
+	{
+		read_size1 = read(fd1, buf, sizeof(buf));
+		if (read_size1 == -1)
+			error98(av[1]);
+		write_size2 = write(fd2, buf, read_size1);
+		if (write_size2 == -1)
+			error99(av[2]);
+		if (read_size1 == 0)
+			break;
+	}
 	if (close(fd1) == -1)
 		error100(fd1);
 	if (close(fd2) == -1)
